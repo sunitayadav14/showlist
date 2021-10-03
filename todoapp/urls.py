@@ -7,4 +7,5 @@ urlpatterns = [
     path('todoapp', v.add_list,name="addlist"),
     path('show', v.todo_show,name="showlist"),
     path('delete/<int:id>', v.delete_list,name="delist"),
+    path('edit/<int:id>',v.edit_list,name="elist"),
 ]

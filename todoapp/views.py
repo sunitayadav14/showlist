@@ -20,3 +20,15 @@ def delete_list(request,id):
     show=List.objects.get(id=id)
     show.delete()
     return redirect('/')
+
+def edit_list(request,id):
+    show=List.objects.get(id=id)
+    if request.method=="POST":
+        f=ListForm(request.POST,instance=show)
+        f.save()
+        return redirect('/')
+    
+    else:
+        show=ListForm(instance=show)
+        context={'form':show}
+        return render(request,"editlist.html",context)
